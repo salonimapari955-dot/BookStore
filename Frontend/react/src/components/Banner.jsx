@@ -26,16 +26,15 @@ function Banner() {
 
   <input
     type="text"
-    className="grow"
+    className="grow" 
     placeholder="Email"
   />
 </label>
       </div>
       <button className="btn btn-sm mt-6 bg-pink-500 hover:bg-pink-600 text-white border-none">
-  Secondary 
+  Get Started
 
 </button>
-
 
       </div>
       <div className=" order-1 w-full md:w-1/2 flex justify-center">
