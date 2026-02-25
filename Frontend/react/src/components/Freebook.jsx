@@ -27,29 +27,20 @@ function Freebook() {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 3, // Laptop
     slidesToScroll: 3,
-    initialSlide: 0,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1024, // Below 1024px = Tablet
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 2,
+          slidesToScroll: 2,
           infinite: true,
           dots: true,
         },
       },
       {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
+        breakpoint: 600, // Below 600px = Mobile
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -65,14 +56,16 @@ function Freebook() {
           <h1 className="font-semibold text-xl pb-2">Free Offered Courses</h1>
 
           <p>
-           Begin your learning journey with free courses for beginners. Easy lessons to help you learn and grow at your own pace with confidence. Perfect for anyone starting from the basics.
+            Begin your learning journey with free courses for beginners. Easy
+            lessons to help you learn and grow at your own pace with confidence.
+            Perfect for anyone starting from the basics.
           </p>
         </div>
 
         <div>
           <Slider {...settings}>
             {book.map((item) => (
-              <Cards item={item} key={item.id} />
+              <Cards item={item} key={item._id} />
             ))}
           </Slider>
         </div>

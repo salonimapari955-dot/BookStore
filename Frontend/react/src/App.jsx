@@ -6,6 +6,7 @@ import Contact from "./components/Contact";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Courses from "./courses/Courses";
 import Login from "./components/Login";
+import ForgotPassword from "./components/Forgotpassword";
 import toast, { Toaster } from "react-hot-toast";
 import { useAuth } from "./context/Authprovider";
 
@@ -25,6 +26,7 @@ const App = () => {
           />
           <Route path="/contact" element={<Contact />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
         </Routes>
         <Toaster />
       </div>

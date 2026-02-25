@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
+import ForgotPassword from "./Forgotpassword";
 
 function Login() {
   const {
@@ -113,8 +114,22 @@ function Login() {
             </div>
           </form>
           {/* FORM END */}
+
+          <p className="text-sm mt-2">
+            <button
+              type="button"
+              className="text-blue-500 underline"
+              onClick={() => {
+                document.getElementById("my_modal_4").close();
+                document.getElementById("forgot_modal").showModal();
+              }}
+            >
+              Forgot Password?
+            </button>
+          </p>
         </div>
       </dialog>
+      <ForgotPassword />
     </div>
   );
 }
