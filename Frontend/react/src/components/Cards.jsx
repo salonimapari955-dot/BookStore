@@ -2,22 +2,43 @@ import React from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { useAuth } from "../context/Authprovider";
 import { deleteBook } from "../services/bookApi";
+import Swal from "sweetalert2";
+
 function Cards({ item, onEdit }) {
   const fallbackImage = "https://via.placeholder.com/400x300?text=Book+Image";
 
   const [authUser] = useAuth(); // 👈 logged-in user
 
   const handleDelete = async () => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this book?",
-    );
-    if (!confirmDelete) return;
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "This book will be permanently deleted!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#dc2626",
+      cancelButtonColor: "#6b7280",
+      confirmButtonText: "Yes, delete it!",
+    });
+
+    if (!result.isConfirmed) return;
 
     try {
       await deleteBook(item._id);
-      window.location.reload(); // simple refresh
+
+      Swal.fire({
+        icon: "success",
+        title: "Deleted!",
+        text: "Book deleted successfully 🗑️",
+        confirmButtonColor: "#ec4899",
+      });
+
+      window.location.reload();
     } catch (error) {
-      console.error(error);
+      Swal.fire({
+        icon: "error",
+        title: "Error!",
+        text: "Failed to delete book",
+      });
     }
   };
 

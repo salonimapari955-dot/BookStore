@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 function EditBookModal({ isOpen, onClose, book, onUpdated }) {
   const [formData, setFormData] = useState({
@@ -32,12 +33,45 @@ function EditBookModal({ isOpen, onClose, book, onUpdated }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // 🔔 CONFIRM BEFORE UPDATE (optional but recommended)
+    const result = await Swal.fire({
+      title: "Update Book?",
+      text: "Do you want to save these changes?",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#2563eb",
+      cancelButtonColor: "#6b7280",
+      confirmButtonText: "Yes, update it!",
+    });
+
+    if (!result.isConfirmed) return;
+
     try {
-      await axios.put(`http://localhost:4001/book/${book._id}`, formData);
+      await axios.put(`http://localhost:4001/book/${book._id}`, {
+        ...formData,
+        price: Number(formData.price),
+      });
+
+      // ✅ SUCCESS ALERT
+      Swal.fire({
+        icon: "success",
+        title: "Updated!",
+        text: "Book details have been updated successfully ✨",
+        confirmButtonColor: "#16a34a",
+      });
+
       onUpdated();
       onClose();
     } catch (error) {
       console.error("Update Error:", error);
+
+      // ❌ ERROR ALERT
+      Swal.fire({
+        icon: "error",
+        title: "Update Failed",
+        text: "Something went wrong while updating the book.",
+        confirmButtonColor: "#dc2626",
+      });
     }
   };
 

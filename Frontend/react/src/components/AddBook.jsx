@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 function CreateBookModal({ isOpen, onClose, onCreated }) {
   const [formData, setFormData] = useState({
@@ -25,6 +26,14 @@ function CreateBookModal({ isOpen, onClose, onCreated }) {
         price: Number(formData.price),
       });
 
+      // ✅ SUCCESS SWEET ALERT
+      Swal.fire({
+        icon: "success",
+        title: "Book Added!",
+        text: "The book has been added successfully 📚",
+        confirmButtonColor: "#16a34a",
+      });
+
       onCreated(); // refresh list
       onClose(); // close modal
 
@@ -38,7 +47,14 @@ function CreateBookModal({ isOpen, onClose, onCreated }) {
       });
     } catch (error) {
       console.error("Create Book Error:", error);
-      alert("Failed to create book");
+
+      // ❌ ERROR SWEET ALERT
+      Swal.fire({
+        icon: "error",
+        title: "Failed!",
+        text: "Could not add the book. Please try again.",
+        confirmButtonColor: "#dc2626",
+      });
     }
   };
 
