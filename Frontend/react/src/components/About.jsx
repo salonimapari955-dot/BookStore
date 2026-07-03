@@ -6,7 +6,9 @@ function About() {
       id="about"
       className="scroll-mt-24 max-w-screen-2xl container mx-auto px-4 md:px-20 py-20 dark:bg-slate-900 dark:text-white"
     >
-      <h2 className="text-3xl font-bold mb-6 text-center text-pink-500">About BookStore</h2>
+      <h2 className="text-3xl font-bold mb-6 text-center text-pink-500">
+        About BookStore
+      </h2>
 
       <p className="text-lg mb-4 leading-relaxed">
         BookStore is a simple and beginner-friendly platform created to help
@@ -21,13 +23,6 @@ function About() {
         support your learning journey. We focus on clarity, simplicity, and a
         smooth user experience.
       </p>
-
-      {/* <p className="text-lg leading-relaxed">
-        This project is built using modern web technologies like React and is
-        designed to grow over time. In the future, we plan to add more features
-        such as user profiles, advanced search, and personalized recommendations
-        to make learning even better.
-      </p> */}
     </section>
   );
 }

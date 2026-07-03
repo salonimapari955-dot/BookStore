@@ -27,11 +27,11 @@ function Freebook() {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 3, // Laptop
+    slidesToShow: 3,
     slidesToScroll: 3,
     responsive: [
       {
-        breakpoint: 1024, // Below 1024px = Tablet
+        breakpoint: 1024,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -40,7 +40,7 @@ function Freebook() {
         },
       },
       {
-        breakpoint: 600, // Below 600px = Mobile
+        breakpoint: 600,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,

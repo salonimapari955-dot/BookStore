@@ -1,7 +1,7 @@
 import User from "../model/user.model.js";
 import bcryptjs from "bcryptjs";
 
-/* ===================== SIGNUP ===================== */
+/* ==== SIGNUP ==== */    
 export const signup = async (req, res) => {
   try {
     const { fullname, email, password } = req.body;
@@ -35,7 +35,7 @@ export const signup = async (req, res) => {
   }
 };
 
-/* ===================== LOGIN ===================== */
+/* ==== LOGIN ====*/
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -68,9 +68,7 @@ export const login = async (req, res) => {
   }
 };
 
-/* ================================================= */
-/* ============ FORGOT PASSWORD APIs =============== */
-/* ================================================= */
+/* ==== FORGOT PASSWORD APIs ==== */
 
 /* ✅ STEP 1: CHECK USER EXISTS */
 export const checkUser = async (req, res) => {
@@ -91,7 +89,7 @@ export const checkUser = async (req, res) => {
   }
 };
 
-/* ✅ STEP 2: RESET PASSWORD (NO EMAIL) */
+/*  RESET PASSWORD */
 export const resetPasswordDirect = async (req, res) => {
   try {
     const { email, password } = req.body;

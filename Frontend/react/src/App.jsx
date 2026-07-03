@@ -6,7 +6,7 @@ import Contact from "./components/Contact";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Courses from "./courses/Courses";
 import Login from "./components/Login";
-import ForgotPassword from "./components/Forgotpassword";
+import ForgotPassword from "./components/ForgotPassword";
 import toast, { Toaster } from "react-hot-toast";
 import { useAuth } from "./context/Authprovider";
 

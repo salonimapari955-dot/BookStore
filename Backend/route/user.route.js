@@ -12,7 +12,7 @@ const router = express.Router();
 router.post("/signup", signup);
 router.post("/login", login);
 
-/* Forgot Password (NO EMAIL) */
+/* Forgot Password */
 router.post("/check-user", checkUser);
 router.post("/reset-password-direct", resetPasswordDirect);
 

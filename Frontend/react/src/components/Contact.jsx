@@ -9,7 +9,6 @@ function Contact({ isModal = false, onClose }) {
           : "max-w-screen-2xl container mx-auto px-4 md:px-20 py-20  "
       }`}
     >
-      {/* Close button only for modal */}
       {isModal && (
         <button
           onClick={onClose}
@@ -19,12 +18,16 @@ function Contact({ isModal = false, onClose }) {
         </button>
       )}
 
-      <h1 className="text-3xl font-semibold mb-10 dark:text-white  ">Contact Us</h1>
+      <h1 className="text-3xl font-semibold mb-10 dark:text-white  ">
+        Contact Us
+      </h1>
 
       <form className="max-w-xl space-y-6">
         {/* Name */}
         <div>
-          <label className="block text-sm font-medium mb-1 dark:text-white">Name</label>
+          <label className="block text-sm font-medium mb-1 dark:text-white">
+            Name
+          </label>
           <input
             type="text"
             placeholder="Enter your name"
@@ -34,7 +37,9 @@ function Contact({ isModal = false, onClose }) {
 
         {/* Email */}
         <div>
-          <label className="block text-sm font-medium mb-1 dark:text-white">Email</label>
+          <label className="block text-sm font-medium mb-1 dark:text-white">
+            Email
+          </label>
           <input
             type="email"
             placeholder="Email address"
@@ -44,7 +49,9 @@ function Contact({ isModal = false, onClose }) {
 
         {/* Message */}
         <div>
-          <label className="block text-sm font-medium mb-1 dark:text-white">Message</label>
+          <label className="block text-sm font-medium mb-1 dark:text-white">
+            Message
+          </label>
           <textarea
             rows="4"
             placeholder="Type your message"

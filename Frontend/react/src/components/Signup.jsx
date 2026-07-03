@@ -32,13 +32,10 @@ function Signup() {
       if (res.data) {
         toast.success("Signup Successfully!");
 
-        // save user
         localStorage.setItem("Users", JSON.stringify(res.data.user));
 
-        // close modal
         document.getElementById("signup_modal").close();
 
-        // redirect to home
         navigate("/", { replace: true });
       }
     } catch (err) {

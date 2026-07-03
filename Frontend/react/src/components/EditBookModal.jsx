@@ -11,7 +11,6 @@ function EditBookModal({ isOpen, onClose, book, onUpdated }) {
     image: "",
   });
 
-  // ✅ When book changes, populate form safely
   useEffect(() => {
     if (book) {
       setFormData({
@@ -33,7 +32,6 @@ function EditBookModal({ isOpen, onClose, book, onUpdated }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // 🔔 CONFIRM BEFORE UPDATE (optional but recommended)
     const result = await Swal.fire({
       title: "Update Book?",
       text: "Do you want to save these changes?",
@@ -52,7 +50,6 @@ function EditBookModal({ isOpen, onClose, book, onUpdated }) {
         price: Number(formData.price),
       });
 
-      // ✅ SUCCESS ALERT
       Swal.fire({
         icon: "success",
         title: "Updated!",
@@ -65,7 +62,6 @@ function EditBookModal({ isOpen, onClose, book, onUpdated }) {
     } catch (error) {
       console.error("Update Error:", error);
 
-      // ❌ ERROR ALERT
       Swal.fire({
         icon: "error",
         title: "Update Failed",

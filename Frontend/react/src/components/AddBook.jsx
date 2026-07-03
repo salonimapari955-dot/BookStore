@@ -26,7 +26,7 @@ function CreateBookModal({ isOpen, onClose, onCreated }) {
         price: Number(formData.price),
       });
 
-      // ✅ SUCCESS SWEET ALERT
+      // SUCCESS SWEET ALERT
       Swal.fire({
         icon: "success",
         title: "Book Added!",
@@ -34,8 +34,8 @@ function CreateBookModal({ isOpen, onClose, onCreated }) {
         confirmButtonColor: "#16a34a",
       });
 
-      onCreated(); // refresh list
-      onClose(); // close modal
+      onCreated(); 
+      onClose(); 
 
       // reset form
       setFormData({

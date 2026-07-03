@@ -10,7 +10,7 @@ export const createBook = async (req, res) => {
   }
 };
 
-/* READ - Get all books */
+/* READ - Get all books */                                        
 export const getBook = async (req, res) => {
   try {
     const book = await Book.find();
@@ -21,7 +21,7 @@ export const getBook = async (req, res) => {
   }
 };
 
-/* DELETE - Delete book by ID */
+/* DELETE - Delete book */
 export const deleteBook = async (req, res) => {
   try {
     const { id } = req.params;
@@ -40,7 +40,7 @@ export const deleteBook = async (req, res) => {
 };
 
 
-// UPDATE - Edit book by ID
+// UPDATE Book 
 export const updateBook = async (req, res) => {
   try {
     const { id } = req.params;

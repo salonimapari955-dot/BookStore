@@ -16,7 +16,7 @@ function ForgotPassword() {
 
   const newPassword = watch("password");
 
-  // STEP 1: CHECK USER
+  // CHECK USER
   const checkUser = async (data) => {
     try {
       await axios.post("http://localhost:4001/user/check-user", {
@@ -31,7 +31,7 @@ function ForgotPassword() {
     }
   };
 
-  // STEP 2: RESET PASSWORD
+  //  RESET PASSWORD
   const resetPassword = async (data) => {
     try {
       await axios.post("http://localhost:4001/user/reset-password-direct", {
@@ -63,7 +63,6 @@ function ForgotPassword() {
           {step === 1 ? "Forgot Password" : "Reset Password"}
         </h3>
 
-        {/* STEP 1 */}
         {step === 1 && (
           <form onSubmit={handleSubmit(checkUser)}>
             <label>Email</label>
@@ -83,7 +82,6 @@ function ForgotPassword() {
           </form>
         )}
 
-        {/* STEP 2 */}
         {step === 2 && (
           <form onSubmit={handleSubmit(resetPassword)}>
             <label>New Password</label>
