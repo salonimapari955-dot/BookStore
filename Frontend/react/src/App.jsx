@@ -8,7 +8,7 @@ import Courses from "./courses/Courses";
 import Login from "./components/Login";
 import ForgotPassword from "./components/ForgotPassword";
 import { Toaster } from "react-hot-toast";
-import { useAuth } from "./context/Authprovider";
+import { useAuth } from "./context/AuthProvider";
 
 const App = () => {
   const [authUser] = useAuth();
@@ -30,7 +30,6 @@ const App = () => {
         <Toaster />
       </div>
     </>
-    
   );
 };
 
