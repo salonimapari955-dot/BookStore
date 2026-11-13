@@ -1,6 +1,6 @@
 import React from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
-import { useAuth } from "../context/Authprovider";
+import { useAuth } from "../context/AuthProvider";
 import { deleteBook } from "../services/bookApi";
 import Swal from "sweetalert2";
 

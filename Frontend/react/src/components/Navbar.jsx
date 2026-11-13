@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import Login from "./Login";
 import Logout from "./Logout";
-import { useAuth } from "../context/Authprovider";
+import { useAuth } from "../context/AuthProvider";
 import { Link } from "react-router-dom";
 import Contact from "./Contact"; // ✅ use Contact ONLY
 
