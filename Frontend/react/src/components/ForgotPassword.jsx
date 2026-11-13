@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { API_URL } from "../config/api";
 
 function ForgotPassword() {
   const [step, setStep] = useState(1);
@@ -19,7 +20,7 @@ function ForgotPassword() {
   // CHECK USER
   const checkUser = async (data) => {
     try {
-      await axios.post("http://localhost:4001/user/check-user", {
+      await axios.post(`${API_URL}/user/check-user`, {
         email: data.email.trim(),
       });
 
@@ -34,7 +35,7 @@ function ForgotPassword() {
   //  RESET PASSWORD
   const resetPassword = async (data) => {
     try {
-      await axios.post("http://localhost:4001/user/reset-password-direct", {
+      await axios.post(`${API_URL}/user/reset-password-direct`, {
         email: email.trim(),
         password: data.password,
       });

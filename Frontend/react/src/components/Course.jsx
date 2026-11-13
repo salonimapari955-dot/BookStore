@@ -5,6 +5,7 @@ import axios from "axios";
 import CreateBookModal from "./AddBook";
 import { useAuth } from "../context/Authprovider";
 import EditBookModal from "./EditBookModal";
+import { API_URL } from "../config/api";
 
 function Course() {
   const [book, setBook] = useState([]);
@@ -15,7 +16,7 @@ function Course() {
 
   const fetchBooks = async () => {
     try {
-      const res = await axios.get("http://localhost:4001/book");
+      const res = await axios.get(`${API_URL}/book`);
       setBook(res.data);
     } catch (error) {
       console.log(error);

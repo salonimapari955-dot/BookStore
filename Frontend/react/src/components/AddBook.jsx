@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { API_URL } from "../config/api";
 
 function CreateBookModal({ isOpen, onClose, onCreated }) {
   const inputClass =
@@ -24,7 +25,7 @@ function CreateBookModal({ isOpen, onClose, onCreated }) {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:4001/book", {
+      await axios.post(`${API_URL}/book`, {
         ...formData,
         price: Number(formData.price),
       });

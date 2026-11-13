@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
+import { API_URL } from "../config/api";
 
 function Signup() {
   const location = useLocation();
@@ -24,10 +25,7 @@ function Signup() {
         password: data.password,
       };
 
-      const res = await axios.post(
-        "http://localhost:4001/user/signup",
-        userInfo,
-      );
+      const res = await axios.post(`${API_URL}/user/signup`, userInfo);
 
       if (res.data) {
         toast.success("Signup Successfully!");

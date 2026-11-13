@@ -1,7 +1,8 @@
 import axios from "axios";
+import { API_URL } from "../config/api";
 
-const API_URL = "http://localhost:4001/book"; 
+const BOOK_API_URL = `${API_URL}/book`;
 
 export const deleteBook = async (id) => {
-  return await axios.delete(`${API_URL}/${id}`);
+  return await axios.delete(`${BOOK_API_URL}/${id}`);
 };

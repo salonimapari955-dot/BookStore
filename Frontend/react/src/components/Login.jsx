@@ -5,6 +5,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import ForgotPassword from "./ForgotPassword";
 import { useAuth } from "../context/Authprovider";
+import { API_URL } from "../config/api";
 
 function Login() {
   const [, setAuthUser] = useAuth();
@@ -23,10 +24,7 @@ function Login() {
         password: data.password,
       };
 
-      const res = await axios.post(
-        "http://localhost:4001/user/login",
-        userInfo,
-      );
+      const res = await axios.post(`${API_URL}/user/login`, userInfo);
 
       if (res.data) {
         const loggedInUser = res.data.user;

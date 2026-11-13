@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { API_URL } from "../config/api";
 
 const EMPTY_FORM = {
   name: "",
@@ -61,7 +62,7 @@ function Contact({ isModal = false, onClose }) {
     setStatus({ type: "", message: "" });
 
     try {
-      await axios.post("http://localhost:4001/contact", {
+      await axios.post(`${API_URL}/contact`, {
         name: formData.name.trim(),
         email: formData.email.trim(),
         message: formData.message.trim(),

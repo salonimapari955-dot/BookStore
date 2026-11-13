@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { API_URL } from "../config/api";
 
 function EditBookModal({ isOpen, onClose, book, onUpdated }) {
   const inputClass =
@@ -48,7 +49,7 @@ function EditBookModal({ isOpen, onClose, book, onUpdated }) {
     if (!result.isConfirmed) return;
 
     try {
-      await axios.put(`http://localhost:4001/book/${book._id}`, {
+      await axios.put(`${API_URL}/book/${book._id}`, {
         ...formData,
         price: Number(formData.price),
       });
