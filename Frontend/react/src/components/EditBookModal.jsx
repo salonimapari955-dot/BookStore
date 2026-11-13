@@ -3,6 +3,9 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 function EditBookModal({ isOpen, onClose, book, onUpdated }) {
+  const inputClass =
+    "w-full border border-gray-300 p-2 rounded bg-white text-gray-900 placeholder:text-gray-500 [color-scheme:light] focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-400 dark:[color-scheme:dark]";
+
   const [formData, setFormData] = useState({
     name: "",
     title: "",
@@ -73,8 +76,10 @@ function EditBookModal({ isOpen, onClose, book, onUpdated }) {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-      <div className="bg-white p-6 rounded-lg w-full max-w-md">
-        <h2 className="text-xl font-semibold mb-4">Edit Book</h2>
+      <div className="bg-white p-6 rounded-lg w-full max-w-md text-gray-900 dark:bg-slate-900 dark:text-white">
+        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
+          Edit Book
+        </h2>
 
         <form onSubmit={handleSubmit} className="space-y-3">
           <input
@@ -82,7 +87,8 @@ function EditBookModal({ isOpen, onClose, book, onUpdated }) {
             value={formData.name}
             onChange={handleChange}
             placeholder="Book Name"
-            className="w-full border p-2 rounded"
+            aria-label="Book Name"
+            className={inputClass}
           />
 
           <input
@@ -90,7 +96,8 @@ function EditBookModal({ isOpen, onClose, book, onUpdated }) {
             value={formData.title}
             onChange={handleChange}
             placeholder="Description"
-            className="w-full border p-2 rounded"
+            aria-label="Description"
+            className={inputClass}
           />
 
           <input
@@ -98,8 +105,9 @@ function EditBookModal({ isOpen, onClose, book, onUpdated }) {
             value={formData.price}
             onChange={handleChange}
             placeholder="Price"
+            aria-label="Price"
             type="number"
-            className="w-full border p-2 rounded"
+            className={inputClass}
           />
 
           <input
@@ -107,7 +115,8 @@ function EditBookModal({ isOpen, onClose, book, onUpdated }) {
             value={formData.category}
             onChange={handleChange}
             placeholder="Category"
-            className="w-full border p-2 rounded"
+            aria-label="Category"
+            className={inputClass}
           />
 
           <input
@@ -115,21 +124,22 @@ function EditBookModal({ isOpen, onClose, book, onUpdated }) {
             value={formData.image}
             onChange={handleChange}
             placeholder="Image URL"
-            className="w-full border p-2 rounded"
+            aria-label="Image URL"
+            className={inputClass}
           />
 
           <div className="flex justify-end gap-2 pt-3">
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 border rounded"
+              className="px-4 py-2 border border-gray-300 rounded text-gray-900 hover:bg-gray-100 dark:border-slate-600 dark:text-white dark:hover:bg-slate-800"
             >
               Cancel
             </button>
 
             <button
               type="submit"
-              className="px-4 py-2 bg-blue-600 text-white rounded"
+              className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-400"
             >
               Update
             </button>

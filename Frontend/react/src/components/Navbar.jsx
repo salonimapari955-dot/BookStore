@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import Contact from "./Contact"; // ✅ use Contact ONLY
 
 function Navbar() {
-  const [authUser, setAuthUser] = useAuth();
+  const [authUser] = useAuth();
 
   const [openContact, setOpenContact] = useState(false);
 
@@ -48,6 +48,11 @@ function Navbar() {
   const navLinkClass =
     "px-4 py-2 rounded-md transition-all duration-200 hover:bg-base-200 hover:shadow-md dark:hover:bg-slate-700";
 
+  const handleGuestCourseClick = () => {
+    sessionStorage.setItem("postLoginRedirect", "/course");
+    document.getElementById("my_modal_4").showModal();
+  };
+
   const navItems = (
     <>
       <li>
@@ -62,10 +67,7 @@ function Navbar() {
             Course
           </Link>
         ) : (
-          <button
-            className={navLinkClass}
-            onClick={() => document.getElementById("signup_modal").showModal()}
-          >
+          <button className={navLinkClass} onClick={handleGuestCourseClick}>
             Course
           </button>
         )}
@@ -193,9 +195,10 @@ rounded-box z-10 mt-3 w-52 p-2 shadow"
               <div className="">
                 <a
                   className="bg-black text-white px-3 py-2 rounded-md hover:bg-slate-800 duration-300 cursor-pointer"
-                  onClick={() =>
-                    document.getElementById("my_modal_4").showModal()
-                  }
+                  onClick={() => {
+                    sessionStorage.removeItem("postLoginRedirect");
+                    document.getElementById("my_modal_4").showModal();
+                  }}
                 >
                   Login
                 </a>

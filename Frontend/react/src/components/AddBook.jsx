@@ -3,6 +3,9 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 function CreateBookModal({ isOpen, onClose, onCreated }) {
+  const inputClass =
+    "w-full px-3 py-2 border rounded bg-white text-black placeholder:text-gray-400";
+
   const [formData, setFormData] = useState({
     name: "",
     title: "",
@@ -60,7 +63,7 @@ function CreateBookModal({ isOpen, onClose, onCreated }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white dark:bg-slate-900 rounded-xl w-full max-w-md p-6">
+      <div className="bg-white dark:bg-slate-900 rounded-xl w-full max-w-md p-6 text-gray-900 dark:text-white">
         <h2 className="text-xl font-semibold mb-4">Add New Book</h2>
 
         <form onSubmit={handleSubmit} className="space-y-3">
@@ -70,7 +73,7 @@ function CreateBookModal({ isOpen, onClose, onCreated }) {
             placeholder="Book Name"
             value={formData.name}
             onChange={handleChange}
-            className="w-full px-3 py-2 border rounded"
+            className={inputClass}
             required
           />
 
@@ -80,7 +83,7 @@ function CreateBookModal({ isOpen, onClose, onCreated }) {
             placeholder="Description"
             value={formData.title}
             onChange={handleChange}
-            className="w-full px-3 py-2 border rounded"
+            className={inputClass}
             required
           />
 
@@ -90,7 +93,7 @@ function CreateBookModal({ isOpen, onClose, onCreated }) {
             placeholder="Category (Free / Paid)"
             value={formData.category}
             onChange={handleChange}
-            className="w-full px-3 py-2 border rounded"
+            className={inputClass}
             required
           />
 
@@ -100,7 +103,7 @@ function CreateBookModal({ isOpen, onClose, onCreated }) {
             placeholder="Price"
             value={formData.price}
             onChange={handleChange}
-            className="w-full px-3 py-2 border rounded"
+            className={inputClass}
             required
           />
 
@@ -110,7 +113,7 @@ function CreateBookModal({ isOpen, onClose, onCreated }) {
             placeholder="Image URL"
             value={formData.image}
             onChange={handleChange}
-            className="w-full px-3 py-2 border rounded"
+            className={inputClass}
           />
 
           <div className="flex justify-end gap-3 pt-4">

@@ -1,11 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
 import ForgotPassword from "./ForgotPassword";
+import { useAuth } from "../context/Authprovider";
 
 function Login() {
+  const [, setAuthUser] = useAuth();
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -25,12 +29,19 @@ function Login() {
       );
 
       if (res.data) {
+        const loggedInUser = res.data.user;
+        const redirectTo = sessionStorage.getItem("postLoginRedirect");
+
+        localStorage.setItem("Users", JSON.stringify(loggedInUser));
+        sessionStorage.removeItem("postLoginRedirect");
+        setAuthUser(loggedInUser);
+
         toast.success("Login Successfully!");
         document.getElementById("my_modal_4").close();
-        setTimeout(() => {
-          window.location.reload();
-          localStorage.setItem("Users", JSON.stringify(res.data.user));
-        }, 1000);
+
+        if (redirectTo) {
+          navigate(redirectTo, { replace: true });
+        }
       }
     } catch (err) {
       if (err.response) {
@@ -44,7 +55,11 @@ function Login() {
 
   return (
     <div>
-      <dialog id="my_modal_4" className="modal">
+      <dialog
+        id="my_modal_4"
+        className="modal"
+        onClose={() => sessionStorage.removeItem("postLoginRedirect")}
+      >
         <div className="modal-box shadow-none relative  dark:text-white dark:bg-slate-900  ">
           {/* FORM START */}
           <form onSubmit={handleSubmit(onSubmit)}>

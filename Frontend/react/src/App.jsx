@@ -7,12 +7,11 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import Courses from "./courses/Courses";
 import Login from "./components/Login";
 import ForgotPassword from "./components/ForgotPassword";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import { useAuth } from "./context/Authprovider";
 
 const App = () => {
-  const [authUser, setAuthUser] = useAuth();
-  console.log(authUser);
+  const [authUser] = useAuth();
   return (
     <>
       <div className="dark:bg-slate-900 dark:text-white">
@@ -22,7 +21,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route
             path="/course"
-            element={authUser ? <Courses /> : <Navigate to="/signup" />}
+            element={authUser ? <Courses /> : <Navigate to="/" replace />}
           />
           <Route path="/contact" element={<Contact />} />
           <Route path="/signup" element={<Signup />} />

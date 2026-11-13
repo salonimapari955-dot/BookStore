@@ -33,7 +33,7 @@ function Cards({ item, onEdit }) {
       });
 
       window.location.reload();
-    } catch (error) {
+    } catch {
       Swal.fire({
         icon: "error",
         title: "Error!",
@@ -53,19 +53,19 @@ function Cards({ item, onEdit }) {
         {authUser && (
           <div className="absolute top-2 right-2 flex gap-2 z-10">
             <button
-              className="btn btn-circle btn-xs btn-warning"
+              className="btn btn-circle btn-xs border-0 bg-amber-400 shadow-md hover:bg-amber-500 dark:bg-amber-300 dark:hover:bg-amber-200"
               title="Edit Book"
               onClick={() => onEdit(item)}
             >
-              <FaEdit />
+              <FaEdit className="h-3.5 w-3.5 text-slate-900" />
             </button>
 
             <button
-              className="btn btn-circle btn-xs btn-error"
+              className="btn btn-circle btn-xs border-0 bg-red-600 shadow-md hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-400"
               title="Delete Book"
               onClick={handleDelete}
             >
-              <FaTrash />
+              <FaTrash className="h-3.5 w-3.5 text-white" />
             </button>
           </div>
         )}
